@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import { watermark } from '@/assets/js/waterMark';
 import Menu from "@/components/menu";
 export default {
   name: "index",
@@ -22,6 +23,14 @@ export default {
       }
     }
   },
+  mounted () {
+    watermark({
+      watermark_txt: 'Open-Monitor',
+      watermark_fontsize: '12px',
+      // watermark_rows: 3,
+      watermark_y: 100,
+      watermark_alpha: 0.2})
+  },
   methods: {},
   components: {
     Menu
@@ -35,10 +44,10 @@ export default {
   min-width: 1200px;
   // background: white;
 }
-.content {
-  background-image: url("../assets/img/watermark-3.png");
-  height: calc(100vh - 210px);
-  margin: 0 auto;
-  padding: 10px;
-}
+// .content {
+//   background-image: url("../assets/img/watermark-3.png");
+//   height: calc(100vh - 210px);
+//   margin: 0 auto;
+//   padding: 10px;
+// }
 </style>
