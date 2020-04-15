@@ -25,9 +25,10 @@ export default {
   },
   mounted () {
     watermark({
-      watermark_txt: 'Open-Monitor',
+      watermark_txt: 'Open-Monitor ' + localStorage.getItem('username'),
       watermark_fontsize: '12px',
-      // watermark_rows: 3,
+      watermark_x_space: 300,
+      watermark_y_space: 100,
       watermark_y: 100,
       watermark_alpha: 0.2})
   },
