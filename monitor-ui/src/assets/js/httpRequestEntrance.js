@@ -75,7 +75,7 @@ function httpRequestEntrance (method, url, data, callback, customHttpConfig) {
       }
     }
   }).catch(function (error) {
-    console.log(error)
+    console.log(error,11)
     if (config.isNeedloading) {
       setTimeout(() => {
         loadingCount--
