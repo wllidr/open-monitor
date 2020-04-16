@@ -44,6 +44,7 @@ function errorMessage(content) {
  *
  * @param 你懂得
  */
+
 function httpRequestEntrance (method, url, data, callback, customHttpConfig) {
   // 处理接口http请求个性化配置
   let config = mergeObj(customHttpConfig)
@@ -59,7 +60,9 @@ function httpRequestEntrance (method, url, data, callback, customHttpConfig) {
     option.data = data
   }
   option.timeout = config.timeout
+ 
   return httpRequest(option).then(response => {
+    config.response = response
     // store.commit('changeFlag',true)
     if (config.isNeedloading) {
       setTimeout(() => {
@@ -99,6 +102,8 @@ function httpRequestEntrance (method, url, data, callback, customHttpConfig) {
       }
     } else {
       console.log('插件')
+      console.log(config.response)
+      return callback(config.response,config.response.msg)
     }
     // if (error.response) {
     //   const status = error.response.status
