@@ -61,27 +61,27 @@ export const readyToDraw = function(that, responseData, viewIndex, chartConfig) 
   }
   console.log(5)
   drawChart(that, config, chartConfig)
-  console.log(8)
+  console.log(9)
 }
 
 export const drawChart = function(that,config,userConfig) {
   const chartTextColor = '#a1a1a2'
-  let originConfig = {
-    title: true,
-    eye: true,
-    dataZoom: true,
-    clear: false,
-    editTitle: false,
-    lineBarSwitch: false
-  }
+  // let originConfig = {
+  //   title: true,
+  //   eye: true,
+  //   dataZoom: true,
+  //   clear: false,
+  //   editTitle: false,
+  //   lineBarSwitch: false
+  // }
   console.log(userConfig)
   // let finalConfig = Object.assign(originConfig, userConfig)
 
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.getElementById(that.elId))
-  if (originConfig.clear) {
-    myChart.clear()
-  }
+  // if (originConfig.clear) {
+  //   myChart.clear()
+  // }
   let option = {
     backgroundColor: '#f5f7f9',
     title: {
@@ -90,7 +90,6 @@ export const drawChart = function(that,config,userConfig) {
         fontWeight: 'bolder',
         color: chartTextColor          // 主标题文字颜色
       },
-      // text: config.title,
       left:'10%',
       top: '10px'
     },
@@ -104,42 +103,27 @@ export const drawChart = function(that,config,userConfig) {
       textStyle: {
         color: '#000'
       },
-      // extraCssText:'width:160px;height:40px;background: red;',
-      formatter: (params)=>{ 
-        var str =''
-        let date = new Date(params[0].data[0])
-        // let year =  date.getFullYear()
-        // let month = (date.getMonth() + 1)>=10?(date.getMonth() + 1):'0'+(date.getMonth() + 1)
-        // let day = date.getDate()>=10?date.getDate():'0'+date.getDate()
-        let hours = date.getHours()>=10?date.getHours():'0'+date.getHours()
-        let minutes = date.getMinutes()>=10?date.getMinutes():'0'+date.getMinutes()
-        let seconds = date.getSeconds()>=10?date.getSeconds():'0'+date.getSeconds()
-        str=hours+':'+minutes+':'+seconds
-        var res = `<div>${str}</div>`
-        params.forEach(item=>{
-          res = res+`<div><div style=' display: inline-block;width: 10px; 
-          height: 10px;border: 1px solid transparent;border-radius:50%;
-          background-color:${item.color};'  ></div> ${item.seriesName}
-          ${Math.floor(item.data[1] * 1000) / 1000}</div>`
-        })
-        return res
-      },
+      // formatter: (params)=>{ 
+      //   var str =''
+      //   let date = new Date(params[0].data[0])
+      //   let hours = date.getHours()>=10?date.getHours():'0'+date.getHours()
+      //   let minutes = date.getMinutes()>=10?date.getMinutes():'0'+date.getMinutes()
+      //   let seconds = date.getSeconds()>=10?date.getSeconds():'0'+date.getSeconds()
+      //   str=hours+':'+minutes+':'+seconds
+      //   var res = `<div>${str}</div>`
+      //   params.forEach(item=>{
+      //     res = res+`<div><div style=' display: inline-block;width: 10px; 
+      //     height: 10px;border: 1px solid transparent;border-radius:50%;
+      //     background-color:${item.color};'  ></div> ${item.seriesName}
+      //     ${Math.floor(item.data[1] * 1000) / 1000}</div>`
+      //   })
+      //   return res
+      // },
     },  
     toolbox: {
       right: '4%',
       top: '10px',
       feature: {
-        // dataZoom: {
-        //     yAxisIndex: 'none'
-        // },
-        // myTool:{
-        //   show:true,
-        //   title:'查看全部',
-        //   icon: 'path://M432.45,595.444c0,2.177-4.661,6.82-11.305,6.82c-6.475,0-11.306-4.567-11.306-6.82s4.852-6.812,11.306-6.812C427.841,588.632,432.452,593.191,432.45,595.444L432.45,595.444z M421.155,589.876c-3.009,0-5.448,2.495-5.448,5.572s2.439,5.572,5.448,5.572c3.01,0,5.449-2.495,5.449-5.572C426.604,592.371,424.165,589.876,421.155,589.876L421.155,589.876z M421.146,591.891c-1.916,0-3.47,1.589-3.47,3.549c0,1.959,1.554,3.548,3.47,3.548s3.469-1.589,3.469-3.548C424.614,593.479,423.062,591.891,421.146,591.891L421.146,591.891zM421.146,591.891',   
-        //   onclick: () => {
-        //     that.$emit('sendConfig', that.chartItemx)
-        //   }
-        // }
       }
     },
     legend: {
@@ -166,9 +150,9 @@ export const drawChart = function(that,config,userConfig) {
         textStyle: {
           color: chartTextColor
         },
-        formatter: function (value) {
-          return echarts.format.formatTime('MM-dd\nhh:mm:ss', value)
-        }
+        // formatter: function (value) {
+        //   return echarts.format.formatTime('MM-dd\nhh:mm:ss', value)
+        // }
       },
       boundaryGap : false,
       axisLine:{
@@ -194,26 +178,26 @@ export const drawChart = function(that,config,userConfig) {
           },
           show: true,
           interval: 'auto',
-          formatter: (value) => {
-            let unit = ''
-            if (value > 1024*1024*1024*1024) {
-              value = value / (1024*1024*1024*1024)  
-              unit = 'T'
-            } else if (value > 1024*1024*1024) {
-              value = value / (1024*1024*1024)  
-              unit = 'G'
-            } else if (value > 1024*1024) {
-              value = value / (1024*1024)  
-              unit = 'M'
-            } else if (value > 1024) {
-              value = value / 1024  
-              unit = 'K'
-            } else {
-              return value + ' ' + config.yaxis.unit
-            }
-            let newValue = Number.isInteger(value) ? value : value.toFixed(3)
-            return newValue + ' ' + unit + config.yaxis.unit
-          }
+          // formatter: (value) => {
+          //   let unit = ''
+          //   if (value > 1024*1024*1024*1024) {
+          //     value = value / (1024*1024*1024*1024)  
+          //     unit = 'T'
+          //   } else if (value > 1024*1024*1024) {
+          //     value = value / (1024*1024*1024)  
+          //     unit = 'G'
+          //   } else if (value > 1024*1024) {
+          //     value = value / (1024*1024)  
+          //     unit = 'M'
+          //   } else if (value > 1024) {
+          //     value = value / 1024  
+          //     unit = 'K'
+          //   } else {
+          //     return value + ' ' + config.yaxis.unit
+          //   }
+          //   let newValue = Number.isInteger(value) ? value : value.toFixed(3)
+          //   return newValue + ' ' + unit + config.yaxis.unit
+          // }
         },
         show: true,
         axisLine:{
@@ -282,4 +266,5 @@ export const drawChart = function(that,config,userConfig) {
   
   // 绘制图表
   myChart.setOption(option) 
+  console.log(8)
   }
