@@ -108,7 +108,7 @@ export default {
         })
       })
       this.$root.$httpRequestEntrance.httpRequestEntrance('POST',this.$root.apiCenter.metricConfigView.api, params, responseData => {
-        
+        console.log(1)
         responseData.yaxis.unit =  panalUnit  
         this.elId = id
         const chartConfig = {eye: false,dataZoom:false, lineBarSwitch: true}

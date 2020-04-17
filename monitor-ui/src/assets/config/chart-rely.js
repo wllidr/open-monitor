@@ -11,12 +11,14 @@ require('echarts/lib/component/legendScroll');
 const echarts = require('echarts/lib/echarts');
 
 export const readyToDraw = function(that, responseData, viewIndex, chartConfig) {
+  console.log(2)
   var legend = []
   if (responseData.series.length === 0) {
     that.chartTitle = responseData.title
     that.noDataTip = true
     return
   }
+  console.log(3)
   const colorX = ['#33CCCC','#666699','#66CC66','#996633','#9999CC','#339933','#339966','#663333','#6666CC','#336699','#3399CC','#33CC66','#CC3333','#CC6666','#996699','#CC9933']
   let colorSet = []
   for (let i=0;i<colorX.length;i++) {
@@ -52,11 +54,14 @@ export const readyToDraw = function(that, responseData, viewIndex, chartConfig) 
       }
     }
   }) 
+  console.log(4)
   let config = {
     ...responseData,
     legend: legend
   }
+  console.log(5)
   drawChart(that, config, chartConfig)
+  console.log(8)
 }
 
 export const drawChart = function(that,config,userConfig) {
@@ -238,7 +243,7 @@ export const drawChart = function(that,config,userConfig) {
       type: ['line', 'bar']
     }
   }
-
+  console.log(6)
   if (finalConfig.eye) {
     option.toolbox.feature.myTool = {
       show:true,
@@ -272,6 +277,7 @@ export const drawChart = function(that,config,userConfig) {
       yAxisIndex: 'none'
     }
   }
+  console.log(7)
   
   // 绘制图表
   myChart.setOption(option) 
