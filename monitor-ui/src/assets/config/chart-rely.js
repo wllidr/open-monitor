@@ -103,22 +103,22 @@ export const drawChart = function(that,config,userConfig) {
       textStyle: {
         color: '#000'
       },
-      formatter: (params)=>{ 
-        var str =''
-        let date = new Date(params[0].data[0])
-        let hours = date.getHours()>=10?date.getHours():'0'+date.getHours()
-        let minutes = date.getMinutes()>=10?date.getMinutes():'0'+date.getMinutes()
-        let seconds = date.getSeconds()>=10?date.getSeconds():'0'+date.getSeconds()
-        str=hours+':'+minutes+':'+seconds
-        var res = `<div>${str}</div>`
-        params.forEach(item=>{
-          res = res+`<div><div style=' display: inline-block;width: 10px; 
-          height: 10px;border: 1px solid transparent;border-radius:50%;
-          background-color:${item.color};'  ></div> ${item.seriesName}
-          ${Math.floor(item.data[1] * 1000) / 1000}</div>`
-        })
-        return res
-      },
+      // formatter: (params)=>{ 
+      //   var str =''
+      //   let date = new Date(params[0].data[0])
+      //   let hours = date.getHours()>=10?date.getHours():'0'+date.getHours()
+      //   let minutes = date.getMinutes()>=10?date.getMinutes():'0'+date.getMinutes()
+      //   let seconds = date.getSeconds()>=10?date.getSeconds():'0'+date.getSeconds()
+      //   str=hours+':'+minutes+':'+seconds
+      //   var res = `<div>${str}</div>`
+      //   params.forEach(item=>{
+      //     res = res+`<div><div style=' display: inline-block;width: 10px; 
+      //     height: 10px;border: 1px solid transparent;border-radius:50%;
+      //     background-color:${item.color};'  ></div> ${item.seriesName}
+      //     ${Math.floor(item.data[1] * 1000) / 1000}</div>`
+      //   })
+      //   return res
+      // },
     },  
     toolbox: {
       right: '4%',
