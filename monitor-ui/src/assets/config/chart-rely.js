@@ -79,9 +79,9 @@ export const drawChart = function(that,config,userConfig) {
 
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.getElementById(that.elId))
-  // if (originConfig.clear) {
-  //   myChart.clear()
-  // }
+  if (originConfig.clear) {
+    myChart.clear()
+  }
   let option = {
     backgroundColor: '#f5f7f9',
     title: {
@@ -103,22 +103,22 @@ export const drawChart = function(that,config,userConfig) {
       textStyle: {
         color: '#000'
       },
-      // formatter: (params)=>{ 
-      //   var str =''
-      //   let date = new Date(params[0].data[0])
-      //   let hours = date.getHours()>=10?date.getHours():'0'+date.getHours()
-      //   let minutes = date.getMinutes()>=10?date.getMinutes():'0'+date.getMinutes()
-      //   let seconds = date.getSeconds()>=10?date.getSeconds():'0'+date.getSeconds()
-      //   str=hours+':'+minutes+':'+seconds
-      //   var res = `<div>${str}</div>`
-      //   params.forEach(item=>{
-      //     res = res+`<div><div style=' display: inline-block;width: 10px; 
-      //     height: 10px;border: 1px solid transparent;border-radius:50%;
-      //     background-color:${item.color};'  ></div> ${item.seriesName}
-      //     ${Math.floor(item.data[1] * 1000) / 1000}</div>`
-      //   })
-      //   return res
-      // },
+      formatter: (params)=>{ 
+        var str =''
+        let date = new Date(params[0].data[0])
+        let hours = date.getHours()>=10?date.getHours():'0'+date.getHours()
+        let minutes = date.getMinutes()>=10?date.getMinutes():'0'+date.getMinutes()
+        let seconds = date.getSeconds()>=10?date.getSeconds():'0'+date.getSeconds()
+        str=hours+':'+minutes+':'+seconds
+        var res = `<div>${str}</div>`
+        params.forEach(item=>{
+          res = res+`<div><div style=' display: inline-block;width: 10px; 
+          height: 10px;border: 1px solid transparent;border-radius:50%;
+          background-color:${item.color};'  ></div> ${item.seriesName}
+          ${Math.floor(item.data[1] * 1000) / 1000}</div>`
+        })
+        return res
+      },
     },  
     toolbox: {
       right: '4%',
@@ -126,96 +126,96 @@ export const drawChart = function(that,config,userConfig) {
       feature: {
       }
     },
-    // legend: {
-    //   textStyle: {
-    //     color: chartTextColor          // 图例文字颜色
-    //   },
-    //   type: 'scroll',
-    //   y: 'bottom',
-    //   padding: 10,
-    //   orient: 'horizontal',
-    //   data: config.legend
-    // },
-    // calculable: false,
-    // grid: {
-    //   top: '40',
-    //   left: '3%',
-    //   right: '5%',
-    //   bottom: '40' ,
-    //   containLabel: true
-    // },
-    // xAxis: {
-    //   type: 'time',
-    //   axisLabel: {
-    //     textStyle: {
-    //       color: chartTextColor
-    //     },
-        // formatter: function (value) {
-        //   return echarts.format.formatTime('MM-dd\nhh:mm:ss', value)
-        // }
-      // },
-      // boundaryGap : false,
-      // axisLine:{
-      //   lineStyle:{
-      //     color:'#a1a1a2'
-      //   }
-      // }, 
-    //   splitLine: {
-    //     show: true,
-    //     lineStyle:{
-    //       color: ['#a1a1a2'],
-    //       width: 1,
-    //       type: 'solid'
-    //     }
-    //   }
-    // },
-    // yAxis: [
-    //   {
-    //     type: 'value',
-    //     axisLabel: {
-    //       textStyle: {
-    //         color: chartTextColor
-    //       },
-    //       show: true,
-    //       interval: 'auto',
-          // formatter: (value) => {
-          //   let unit = ''
-          //   if (value > 1024*1024*1024*1024) {
-          //     value = value / (1024*1024*1024*1024)  
-          //     unit = 'T'
-          //   } else if (value > 1024*1024*1024) {
-          //     value = value / (1024*1024*1024)  
-          //     unit = 'G'
-          //   } else if (value > 1024*1024) {
-          //     value = value / (1024*1024)  
-          //     unit = 'M'
-          //   } else if (value > 1024) {
-          //     value = value / 1024  
-          //     unit = 'K'
-          //   } else {
-          //     return value + ' ' + config.yaxis.unit
-          //   }
-          //   let newValue = Number.isInteger(value) ? value : value.toFixed(3)
-          //   return newValue + ' ' + unit + config.yaxis.unit
-          // }
-        // },
-        // show: true,
-        // axisLine:{
-        //   lineStyle:{
-        //     color:'#a1a1a2'
-        //   }
-        // }, 
-        // splitLine: {
-        //   show: true,
-        //   lineStyle:{
-        //     color: ['#a1a1a2'],
-        //     width: 1,
-        //    type: 'solid'
-        //   }
-        // }
-  //     },
-  //   ],
-    series: config.series
+    legend: {
+      textStyle: {
+        color: chartTextColor          // 图例文字颜色
+      },
+      type: 'scroll',
+      y: 'bottom',
+      padding: 10,
+      orient: 'horizontal',
+      data: config.legend
+    },
+    calculable: false,
+    grid: {
+      top: '40',
+      left: '3%',
+      right: '5%',
+      bottom: '40' ,
+      containLabel: true
+    },
+    xAxis: {
+      type: 'time',
+      axisLabel: {
+        textStyle: {
+          color: chartTextColor
+        },
+        formatter: function (value) {
+          return echarts.format.formatTime('MM-dd\nhh:mm:ss', value)
+        }
+      },
+      boundaryGap : false,
+      axisLine:{
+        lineStyle:{
+          color:'#a1a1a2'
+        }
+      }, 
+      splitLine: {
+        show: true,
+        lineStyle:{
+          color: ['#a1a1a2'],
+          width: 1,
+          type: 'solid'
+        }
+      }
+    },
+    yAxis: [
+      {
+        type: 'value',
+        axisLabel: {
+          textStyle: {
+            color: chartTextColor
+          },
+          show: true,
+          interval: 'auto',
+          formatter: (value) => {
+            let unit = ''
+            if (value > 1024*1024*1024*1024) {
+              value = value / (1024*1024*1024*1024)  
+              unit = 'T'
+            } else if (value > 1024*1024*1024) {
+              value = value / (1024*1024*1024)  
+              unit = 'G'
+            } else if (value > 1024*1024) {
+              value = value / (1024*1024)  
+              unit = 'M'
+            } else if (value > 1024) {
+              value = value / 1024  
+              unit = 'K'
+            } else {
+              return value + ' ' + config.yaxis.unit
+            }
+            let newValue = Number.isInteger(value) ? value : value.toFixed(3)
+            return newValue + ' ' + unit + config.yaxis.unit
+          }
+        },
+        show: true,
+        axisLine:{
+          lineStyle:{
+            color:'#a1a1a2'
+          }
+        }, 
+        splitLine: {
+          show: true,
+          lineStyle:{
+            color: ['#a1a1a2'],
+            width: 1,
+           type: 'solid'
+          }
+        }
+      },
+    ],
+    // series: config.series
   }
 
   if (finalConfig.title) {
