@@ -93,16 +93,16 @@ export const drawChart = function(that,config,userConfig) {
       left:'10%',
       top: '10px'
     },
-    tooltip: {
-      trigger: 'axis',
-      backgroundColor: 'rgba(245, 245, 245, 0.8)',
-      borderWidth: 1,
-      borderColor: '#ccc',
-      padding: 10,
-      confine: true, // tip控制在图像区内
-      textStyle: {
-        color: '#000'
-      },
+    // tooltip: {
+    //   trigger: 'axis',
+    //   backgroundColor: 'rgba(245, 245, 245, 0.8)',
+    //   borderWidth: 1,
+    //   borderColor: '#ccc',
+    //   padding: 10,
+    //   confine: true, // tip控制在图像区内
+    //   textStyle: {
+    //     color: '#000'
+    //   },
       // formatter: (params)=>{ 
       //   var str =''
       //   let date = new Date(params[0].data[0])
@@ -119,65 +119,65 @@ export const drawChart = function(that,config,userConfig) {
       //   })
       //   return res
       // },
-    },  
-    toolbox: {
-      right: '4%',
-      top: '10px',
-      feature: {
-      }
-    },
-    legend: {
-      textStyle: {
-        color: chartTextColor          // 图例文字颜色
-      },
-      type: 'scroll',
-      y: 'bottom',
-      padding: 10,
-      orient: 'horizontal',
-      data: config.legend
-    },
-    calculable: false,
-    grid: {
-      top: '40',
-      left: '3%',
-      right: '5%',
-      bottom: '40' ,
-      containLabel: true
-    },
-    xAxis: {
-      type: 'time',
-      axisLabel: {
-        textStyle: {
-          color: chartTextColor
-        },
+    // },  
+    // toolbox: {
+    //   right: '4%',
+    //   top: '10px',
+    //   feature: {
+    //   }
+    // },
+    // legend: {
+    //   textStyle: {
+    //     color: chartTextColor          // 图例文字颜色
+    //   },
+    //   type: 'scroll',
+    //   y: 'bottom',
+    //   padding: 10,
+    //   orient: 'horizontal',
+    //   data: config.legend
+    // },
+    // calculable: false,
+    // grid: {
+    //   top: '40',
+    //   left: '3%',
+    //   right: '5%',
+    //   bottom: '40' ,
+    //   containLabel: true
+    // },
+    // xAxis: {
+    //   type: 'time',
+    //   axisLabel: {
+    //     textStyle: {
+    //       color: chartTextColor
+    //     },
         // formatter: function (value) {
         //   return echarts.format.formatTime('MM-dd\nhh:mm:ss', value)
         // }
-      },
-      boundaryGap : false,
-      axisLine:{
-        lineStyle:{
-          color:'#a1a1a2'
-        }
-      }, 
-      splitLine: {
-        show: true,
-        lineStyle:{
-          color: ['#a1a1a2'],
-          width: 1,
-          type: 'solid'
-        }
-      }
-    },
-    yAxis: [
-      {
-        type: 'value',
-        axisLabel: {
-          textStyle: {
-            color: chartTextColor
-          },
-          show: true,
-          interval: 'auto',
+      // },
+      // boundaryGap : false,
+      // axisLine:{
+      //   lineStyle:{
+      //     color:'#a1a1a2'
+      //   }
+      // }, 
+    //   splitLine: {
+    //     show: true,
+    //     lineStyle:{
+    //       color: ['#a1a1a2'],
+    //       width: 1,
+    //       type: 'solid'
+    //     }
+    //   }
+    // },
+    // yAxis: [
+    //   {
+    //     type: 'value',
+    //     axisLabel: {
+    //       textStyle: {
+    //         color: chartTextColor
+    //       },
+    //       show: true,
+    //       interval: 'auto',
           // formatter: (value) => {
           //   let unit = ''
           //   if (value > 1024*1024*1024*1024) {
@@ -198,25 +198,25 @@ export const drawChart = function(that,config,userConfig) {
           //   let newValue = Number.isInteger(value) ? value : value.toFixed(3)
           //   return newValue + ' ' + unit + config.yaxis.unit
           // }
-        },
-        show: true,
-        axisLine:{
-          lineStyle:{
-            color:'#a1a1a2'
-          }
-        }, 
-        splitLine: {
-          show: true,
-          lineStyle:{
-            color: ['#a1a1a2'],
-            width: 1,
-           type: 'solid'
-          }
-        }
-      },
-    ],
-    series: config.series
-  }
+        // },
+        // show: true,
+        // axisLine:{
+        //   lineStyle:{
+        //     color:'#a1a1a2'
+        //   }
+        // }, 
+        // splitLine: {
+        //   show: true,
+        //   lineStyle:{
+        //     color: ['#a1a1a2'],
+        //     width: 1,
+        //    type: 'solid'
+        //   }
+        // }
+  //     },
+  //   ],
+  //   series: config.series
+  // }
 
   // if (finalConfig.title) {
   //   option.title.text = config.title
@@ -261,7 +261,7 @@ export const drawChart = function(that,config,userConfig) {
   //     },
   //     yAxisIndex: 'none'
   //   }
-  // }
+  }
   console.log(7)
   
   // 绘制图表
