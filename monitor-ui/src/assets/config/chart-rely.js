@@ -215,7 +215,7 @@ export const drawChart = function(that,config,userConfig) {
         // }
   //     },
   //   ],
-    // series: config.series
+    series: config.series
   }
 
   if (finalConfig.title) {
