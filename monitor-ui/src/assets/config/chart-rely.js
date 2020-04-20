@@ -75,7 +75,7 @@ export const drawChart = function(that,config,userConfig) {
     lineBarSwitch: false
   }
   console.log(userConfig)
-  let finalConfig = Object.assign(originConfig, userConfig)
+  // let finalConfig = Object.assign(originConfig, userConfig)
 
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.getElementById(that.elId))
