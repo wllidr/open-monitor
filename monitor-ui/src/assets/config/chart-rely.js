@@ -144,31 +144,31 @@ export const drawChart = function(that,config,userConfig) {
       bottom: '40' ,
       containLabel: true
     },
-    // xAxis: {
-    //   type: 'time',
-    //   axisLabel: {
-    //     textStyle: {
-    //       color: chartTextColor
-    //     },
-    //     formatter: function (value) {
-    //       return echarts.format.formatTime('MM-dd\nhh:mm:ss', value)
-    //     }
-    //   },
-    //   boundaryGap : false,
-    //   axisLine:{
-    //     lineStyle:{
-    //       color:'#a1a1a2'
-    //     }
-    //   }, 
-    //   splitLine: {
-    //     show: true,
-    //     lineStyle:{
-    //       color: ['#a1a1a2'],
-    //       width: 1,
-    //       type: 'solid'
-    //     }
-    //   }
-    // },
+    xAxis: {
+      type: 'time',
+      axisLabel: {
+        textStyle: {
+          color: chartTextColor
+        },
+        formatter: function (value) {
+          return echarts.format.formatTime('MM-dd\nhh:mm:ss', value)
+        }
+      },
+      boundaryGap : false,
+      axisLine:{
+        lineStyle:{
+          color:'#a1a1a2'
+        }
+      }, 
+      splitLine: {
+        show: true,
+        lineStyle:{
+          color: ['#a1a1a2'],
+          width: 1,
+          type: 'solid'
+        }
+      }
+    },
     // yAxis: [
     //   {
     //     type: 'value',
