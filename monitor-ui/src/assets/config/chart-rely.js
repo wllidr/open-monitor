@@ -169,52 +169,52 @@ export const drawChart = function(that,config,userConfig) {
         }
       }
     },
-    // yAxis: [
-    //   {
-    //     type: 'value',
-    //     axisLabel: {
-    //       textStyle: {
-    //         color: chartTextColor
-    //       },
-    //       show: true,
-    //       interval: 'auto',
-    //       formatter: (value) => {
-    //         let unit = ''
-    //         if (value > 1024*1024*1024*1024) {
-    //           value = value / (1024*1024*1024*1024)  
-    //           unit = 'T'
-    //         } else if (value > 1024*1024*1024) {
-    //           value = value / (1024*1024*1024)  
-    //           unit = 'G'
-    //         } else if (value > 1024*1024) {
-    //           value = value / (1024*1024)  
-    //           unit = 'M'
-    //         } else if (value > 1024) {
-    //           value = value / 1024  
-    //           unit = 'K'
-    //         } else {
-    //           return value + ' ' + config.yaxis.unit
-    //         }
-    //         let newValue = Number.isInteger(value) ? value : value.toFixed(3)
-    //         return newValue + ' ' + unit + config.yaxis.unit
-    //       }
-    //     },
-    //     show: true,
-    //     axisLine:{
-    //       lineStyle:{
-    //         color:'#a1a1a2'
-    //       }
-    //     }, 
-    //     splitLine: {
-    //       show: true,
-    //       lineStyle:{
-    //         color: ['#a1a1a2'],
-    //         width: 1,
-    //        type: 'solid'
-    //       }
-    //     }
-    //   },
-    // ],
+    yAxis: [
+      {
+        type: 'value',
+        axisLabel: {
+          textStyle: {
+            color: chartTextColor
+          },
+          show: true,
+          interval: 'auto',
+          formatter: (value) => {
+            let unit = ''
+            if (value > 1024*1024*1024*1024) {
+              value = value / (1024*1024*1024*1024)  
+              unit = 'T'
+            } else if (value > 1024*1024*1024) {
+              value = value / (1024*1024*1024)  
+              unit = 'G'
+            } else if (value > 1024*1024) {
+              value = value / (1024*1024)  
+              unit = 'M'
+            } else if (value > 1024) {
+              value = value / 1024  
+              unit = 'K'
+            } else {
+              return value + ' ' + config.yaxis.unit
+            }
+            let newValue = Number.isInteger(value) ? value : value.toFixed(3)
+            return newValue + ' ' + unit + config.yaxis.unit
+          }
+        },
+        show: true,
+        axisLine:{
+          lineStyle:{
+            color:'#a1a1a2'
+          }
+        }, 
+        splitLine: {
+          show: true,
+          lineStyle:{
+            color: ['#a1a1a2'],
+            width: 1,
+           type: 'solid'
+          }
+        }
+      },
+    ],
     series: config.series // 此处没问题，检查之上代码
   }
 
