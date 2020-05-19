@@ -6,12 +6,27 @@
 </template>
 
 <script>
+// import {getArticles} from '@/assets/js/articles'
+import request from '@/assets/js/request'
 export default {
   name: 'TEST',
   mounted() {
   },
   methods: {
-    test () {
+    async test () {
+      let params = {
+        search: '.',
+        page: 1,
+        size: 1000
+      }
+      const data = await request({
+        url: 'dashboard/search',
+        method: 'get',
+        params,
+        isNeedloading: true
+      })
+      console.log(data)
+      console.log(6)
     }
   }
 }

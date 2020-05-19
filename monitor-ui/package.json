@@ -9,6 +9,7 @@
     "plugin": "vue-cli-service build --mode plugin"
   },
   "dependencies": {
+    "@types/jquery": "^3.3.38",
     "@types/js-cookie": "^2.2.6",
     "@vue/cli-plugin-typescript": "^4.3.1",
     "axios": "^0.19.0",
