@@ -6,8 +6,9 @@
 </template>
 
 <script>
+import requestBridge from '@/assets/js/request-bridge'
 // import {getArticles} from '@/assets/js/articles'
-import request from '@/assets/js/request'
+// import request from '@/assets/js/request'
 export default {
   name: 'TEST',
   mounted() {
@@ -19,12 +20,19 @@ export default {
         page: 1,
         size: 1000
       }
-      const data = await request({
+      // const data = await request({
+      //   url: 'dashboard/search',
+      //   method: 'get',
+      //   params,
+      //   isNeedloading: false
+      // })
+
+      const data = await requestBridge({
         url: 'dashboard/search',
         method: 'get',
-        params,
-        isNeedloading: true
+        params
       })
+
       console.log(data)
       console.log(6)
     }
