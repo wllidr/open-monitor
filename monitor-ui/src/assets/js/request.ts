@@ -7,12 +7,6 @@ const service = axios.create({
   baseURL: 'http://129.204.99.160:38080/wecube-monitor/api/v1',
   timeout: 5000
 })
-// const mergeConfig = (config: any) => {
-//   let httpConfig = {
-//     isNeedloading: true
-//   }
-//   return Object.assign(httpConfig, config)
-// }
 
 export const loading = {
   start: ()=>{
@@ -33,12 +27,12 @@ export const loading = {
 // Request interceptors
 service.interceptors.request.use(
   (config) => {
-    console.log(config)
-    // const mergerConfig = mergeConfig(config)
     config.headers['X-Auth-Token'] = getToken()
-    // if (config.isNeedloading) {
-    //   loading.start()
-    // }
+    if (config.headers.isNeedloading) {
+      loading.start()
+    }
+    delete config.headers.isNeedloading
+    console.log(config)
     return config
   },
   (error) => {
@@ -49,7 +43,6 @@ service.interceptors.request.use(
 // Response interceptors
 service.interceptors.response.use(
   (response) => {
-    console.log(5)
     loading.end()
     return response.data
   },

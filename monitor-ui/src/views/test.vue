@@ -20,17 +20,11 @@ export default {
         page: 1,
         size: 1000
       }
-      // const data = await request({
-      //   url: 'dashboard/search',
-      //   method: 'get',
-      //   params,
-      //   isNeedloading: false
-      // })
-
       const data = await requestBridge({
         url: 'dashboard/search',
         method: 'get',
-        params
+        params,
+        isNeedloading: true
       })
 
       console.log(data)
